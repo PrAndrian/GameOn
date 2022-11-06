@@ -7,19 +7,8 @@ const checkError = document.querySelector("#checkbox-input-error");
 const checkFieldCondition = document.querySelector("#checkbox1");
 const checkFieldConditionError = document.querySelector("#checkFieldConditionError");
 
-quantityError.style.display="none";
 checkError.style.display="none";
 checkFieldConditionError.style.display="none";
-
-// function checkInput(field,onsubmit){
-//     if(field.value.length == 0 || field.value.length < 2){
-//         onsubmit.preventDefault();
-//         field.parentElement.setAttribute("data-error-visible", "true");
-//         handleChange_first_last(field);
-//     }else{
-//         field.parentElement.setAttribute("data-error-visible", "false");
-//     }
-// }
 
 //----checkInput
 function checkInput(field,onsubmit,handler){
@@ -44,6 +33,12 @@ function handleChange_email(field){
     });
 }
 
+function handleChange_quatity(field){
+    field.addEventListener("input", (event)=>{
+        error_message_quatity(field,event);
+    });
+}
+
 //----error-message
 function error_message_first_last(field,event){
     if(event.target.value.length == 0 || event.target.value.length < 2){
@@ -61,29 +56,32 @@ function error_message_email(field,event){
     }
 }    
 
+function error_message_quatity(field,event){
+    if(Number.isInteger(event.target.value) || event.target.value <= 0){
+        field.parentElement.setAttribute("data-error-visible", "true");
+    }else{
+        field.parentElement.setAttribute("data-error-visible", "false");
+    }
+}    
+
     
 document.querySelector(".btn-submit").addEventListener("click", (event)=>{
     const firstField = document.querySelector("#first");
     const lastField = document.querySelector("#last");
     const emailField = document.querySelector("#email");
 
-    // checkInput(firstField,event);
-    // checkInput(lastField,event);
     checkInput(firstField,event,handleChange_first_last);
     checkInput(lastField,event,handleChange_first_last);
     checkInput(emailField,event,handleChange_email);
+    checkInput(quantityField,event,handleChange_quatity);
 
-//  (@). Cette partie est le premier groupe de capture.
-//  (.+) Correspond à une ou plusieurs occurrences d'un caractère quelconque. Cette partie est le deuxième groupe de capture.
-//  $	Termine la correspondance à la fin de la chaîne.
-
-    // if((Number.isInteger(quantityField.value) || quantityField.value < 0) || quantityField.value==0 ){
-    //     error_message(quantityError);
-    //     event.preventDefault();
-    // }else{
-    //     quantityError.style.display="none";
-    //     event.preventDefault();
-    // }
+    if((Number.isInteger(quantityField.value) || quantityField.value <= 0)){
+        error_message(quantityError);
+        event.preventDefault();
+    }else{
+        quantityError.style.display="none";
+        event.preventDefault();
+    }
 
     // let checkArray = Array();
     // for( i=1; i<7; i++){
