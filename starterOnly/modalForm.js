@@ -21,20 +21,7 @@ checkFieldConditionError.style.display="none";
 //     }
 // }
 
-function handleChange_first_last(field){
-    field.addEventListener("input", (event)=>{
-        error_message_first_last(field,event);
-    });
-}
-
-function error_message_first_last(field,event){
-    if(event.target.value.length == 0 || event.target.value.length < 2){
-        field.parentElement.setAttribute("data-error-visible", "true");
-    }else{
-        field.parentElement.setAttribute("data-error-visible", "false");
-    }
-}    
-
+//----checkInput
 function checkInput(field,onsubmit,handler){
     if(field.value.length == 0 || field.value.length < 2){
         onsubmit.preventDefault();
@@ -44,12 +31,27 @@ function checkInput(field,onsubmit,handler){
         field.parentElement.setAttribute("data-error-visible", "false");
     }
 }
-
-function handleChange_email(field){
+//----handler
+function handleChange_first_last(field){
     field.addEventListener("input", (event)=>{
         error_message_first_last(field,event);
     });
 }
+
+function handleChange_email(field){
+    field.addEventListener("input", (event)=>{
+        error_message_email(field,event);
+    });
+}
+
+//----error-message
+function error_message_first_last(field,event){
+    if(event.target.value.length == 0 || event.target.value.length < 2){
+        field.parentElement.setAttribute("data-error-visible", "true");
+    }else{
+        field.parentElement.setAttribute("data-error-visible", "false");
+    }
+}    
 
 function error_message_email(field,event){
     if(!event.target.value.match(/((['a-zA-Z])|((['a-zA-Z])(.)(['a-zA-Z])))(@)(['a-zA-Z])(.)(['a-zA-Z])/)){
