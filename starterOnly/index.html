@@ -103,7 +103,10 @@
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData"
+                data-error="Vous devez entrer votre date de naissance."
+                data-error-visible="false"
+              >
                 <label>Date de naissance</label><br>
                 <input
                   class="text-control"
@@ -122,7 +125,10 @@
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
-                class="formData">
+                class="formData"
+                data-error="Vous devez ETRES DROLE"
+                data-error-visible="false"
+              >
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -189,11 +195,13 @@
                   <span class="checkbox-icon"></span>
                   Portland</label
                 > <br/>
-                <span id='checkbox-input-error' class='error'>Vous devez choisir une option.</span>
               </div>
 
               <div
-                class="formData">
+                class="formData"
+                data-error="Vous devez ETRES DROLE"
+                data-error-visible="false"
+              >
                 <input
                   class="checkbox-input"
                   type="checkbox"
@@ -204,7 +212,6 @@
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <br>
-                <span id='checkFieldConditionError' class='error'>Vous devez vérifier que vous acceptez les termes et conditions.</span>
 
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
