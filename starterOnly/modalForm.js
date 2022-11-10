@@ -7,7 +7,7 @@ function conditions(field){
     const emailField = document.querySelector("#email");
     const quantityField = document.querySelector("#quantity");
     const birthdateField = document.querySelector("#birthdate");
-    // const radioField = document.querySelectorAll(".checkbox-input");
+    const radioField = document.querySelector(".checkbox-input"); 
     const checkFieldCondition = document.querySelector("#checkbox1");
    
     if(field==firstField || field==lastField){
@@ -30,17 +30,16 @@ function conditions(field){
         return (field.checked == false);
     }
 
-    // let checkArray = Array();
-    // for( i=1; i<7; i++){
-    //     result = document.getElementById('location'+i).checked;
-    //     checkArray.push(result);
-    // }
+    let checkArray = Array();
+    for( i=1; i<7; i++){
+        result = document.getElementById('location'+i).checked;
+        checkArray.push(result);
+    }
 
-    // if(field==radioField){
-    //     return checkArray.includes(true);
-    // }     
-    
-
+    if(field==radioField){
+        console.log("rien");
+        return !checkArray.includes(true);
+    }
 }
 
 //----checkInput
@@ -53,16 +52,6 @@ function checkInput(field,onsubmit,handler){
         field.parentElement.setAttribute("data-error-visible", "false");
     }
 }
-
-// function checkInput_cities(field,onsubmit,handler){
-//     if(conditions(field)){
-//         onsubmit.preventDefault();
-//         field[0].parentElement.setAttribute("data-error-visible", "true");
-//         handler(field);
-//     }else{
-//         field[0].parentElement.setAttribute("data-error-visible", "false");
-//     }
-// }
 
 //----handler
 function handleChange_first_last(field){
@@ -95,17 +84,13 @@ function handleChange_checkFieldCondition(field){
     });
 }
 
-// function handleChange_radio(field){
-//     let checkArray = Array();
-//     for( i=1; i<7; i++){
-//         result = document.getElementById('location'+i).checked;
-//         checkArray.push(result);
-//     }
-    
-//     field.addEventListener("input", (event)=>{
-//         error_message_radio(field,event,checkArray);
-//     });
-// }
+function handleChange_radio(field){
+    document.querySelectorAll('.checkbox-input').forEach(item => {
+        item.addEventListener("change", (event)=>{
+            error_message_radio(field,event);
+        });
+    })
+}
 
 //----error-message
 function error_message_first_last(field,event){
@@ -148,13 +133,14 @@ function error_message_checkFieldCondition(field,event){
     }
 }    
 
-// function error_message_radio(field,event,radioArray){
-//     if(radioArray.includes(true)){
-//         field.parentElement.setAttribute("data-error-visible", "false");
-//     }else{
-//         field.parentElement.setAttribute("data-error-visible", "true");
-//     }
-// }    
+function error_message_radio(field,event){
+    // if(!radioArray.includes(true)){
+    if(!event.target.value.includes(true)){
+        field.parentElement.setAttribute("data-error-visible", "false");
+    }else{
+        field.parentElement.setAttribute("data-error-visible", "true");
+    }
+}    
 
     
 document.querySelector(".btn-submit").addEventListener("click", (event)=>{
@@ -163,7 +149,7 @@ document.querySelector(".btn-submit").addEventListener("click", (event)=>{
     const emailField = document.querySelector("#email");
     const quantityField = document.querySelector("#quantity");
     const birthdateField = document.querySelector("#birthdate");
-    // const radioField = document.querySelectorAll(".checkbox-input");
+    const radioField = document.querySelector(".checkbox-input");
     const checkFieldCondition = document.querySelector("#checkbox1");
 
     checkInput(firstField,event,handleChange_first_last);
@@ -172,21 +158,5 @@ document.querySelector(".btn-submit").addEventListener("click", (event)=>{
     checkInput(quantityField,event,handleChange_quatity);
     checkInput(birthdateField,event,handleChange_birthdate);
     checkInput(checkFieldCondition,event,handleChange_checkFieldCondition);
-    // checkInput_cities(radioField,event,handleChange_radio);
-
-    // let checkArray = Array();
-    // for( i=1; i<7; i++){
-    //     result = document.getElementById('location'+i).checked;
-    //     checkArray.push(result);
-    // }
-
-    // if(!checkArray.includes(true)){
-    //     error_message(checkError);
-    //     event.preventDefault();
-    // }
-    
-    // if(checkFieldCondition.checked == false){
-    //     error_message(checkFieldConditionError);
-    //     event.preventDefault();
-    // }
+    checkInput(radioField,event,handleChange_radio);
 });
