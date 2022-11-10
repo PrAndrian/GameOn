@@ -85,7 +85,7 @@ function handleChange_checkFieldCondition(field){
 }
 
 function handleChange_radio(field){
-    document.querySelectorAll('.checkbox-input').forEach(item => {
+    document.querySelectorAll('#radio > *').forEach(item => {
         item.addEventListener("change", (event)=>{
             error_message_radio(field,event);
         });
