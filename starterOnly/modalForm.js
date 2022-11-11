@@ -21,7 +21,7 @@ function conditions(field){
     }
 
     if(field==quantityField){
-        return (Number.isInteger(field.value) || field.value <= 0);
+        return (Number.isInteger(field.value) || field.value < 0 || field.value.length == 0);
     }
 
     if(field==birthdateField){
@@ -113,7 +113,7 @@ function error_message_email(field,event){
 }    
 
 function error_message_quatity(field,event){
-    if(Number.isInteger(event.target.value) || event.target.value <= 0){
+    if(Number.isInteger(event.target.value) || event.target.value < 0 || event.target.value.length == 0){
         field.parentElement.setAttribute("data-error-visible", "true");
     }else{
         field.parentElement.setAttribute("data-error-visible", "false");
