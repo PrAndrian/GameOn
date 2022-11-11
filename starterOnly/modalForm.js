@@ -169,7 +169,14 @@ function validate(event){
 }
 //---Submit Sucessfully
 function submitSucess(){
-    // document.querySelector('.modal-body').style.display = 'none';
+    showSuccess();
     document.querySelector("form").reset();
+}
+
+function showSuccess(){
     document.querySelector('.content').setAttribute("data-success-visible", "true");
+    document.querySelector('.content').setAttribute("data-success-visible", "true");
+}
+function hideSuccess(){
+    document.querySelector('.content').setAttribute("data-success-visible", "false");
 }

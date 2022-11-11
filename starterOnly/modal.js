@@ -27,6 +27,7 @@ modalClose.addEventListener("click", closeModal);
 
 // close modal form
 function closeModal() {
-  modalbg.style.display = "none";
+  modalbg.style.display = "none";    
+  hideSuccess();
 }
 

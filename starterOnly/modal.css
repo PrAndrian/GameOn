@@ -210,7 +210,6 @@ main {
 
 .modal-body {
   padding: 15px 8%;
-  margin: 15px auto;
 }
 
 label {
@@ -257,7 +256,6 @@ input {
   font-size: 0px;
   color: greenyellow;
   display: block;
-  margin-top: 7px;
   margin-bottom: 7px;
   text-align: center;
   opacity: 0;
@@ -268,7 +266,6 @@ input {
   font-size: 16px;
   opacity: 1;
 }
-
 /* 
 input[data-error]::after {
     content: attr(data-error);
