@@ -40,6 +40,18 @@ img {
 .main-navbar {
     float: right;
 }
+
+.flex{
+  display: flex;
+} 
+.flex-jc-c{
+  justify-content: center;
+} 
+
+.flex-ai-c{
+  align-items: center;
+}
+
 .topnav a {
   float: left;
   display: block;
@@ -77,7 +89,21 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
+  .main-navbar{
+    width: 100%;
+  }
+  .topnav.responsive {
+    position: fixed;
+    z-index:1000;
+    background-color: white;
+    height: 100%;
+    display: block;
+  }
+  .topnav{
+    display: flex;
+    margin:0;
+    padding: 3.5%;;
+  }
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
@@ -97,7 +123,6 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
   }
 } 
 
@@ -215,11 +240,10 @@ input {
   display: block;
   margin-top: 7px;
   margin-bottom: 7px;
-  /* text-align: right; */
-  /* line-height: 0.3; */
   opacity: 0;
   transition: opacity 0.3s;
 }
+
 .formData[data-error-visible="true"]::after {
   font-size: 16px;
   opacity: 1;
@@ -227,6 +251,24 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
+
+.content[data-success]::after {
+  content: attr(data-success);
+  font-size: 0px;
+  color: greenyellow;
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.content[data-success-visible="true"]::after {
+  font-size: 16px;
+  opacity: 1;
+}
+
 /* 
 input[data-error]::after {
     content: attr(data-error);
@@ -515,6 +557,13 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 498px){
+  .content{
+    margin :0;
+    border-radius: 0;
   }
 }
 

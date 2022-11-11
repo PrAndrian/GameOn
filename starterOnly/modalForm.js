@@ -1,6 +1,4 @@
-
 //--Conditions
-
 function conditions(field){
     const firstField = document.querySelector("#first");
     const lastField = document.querySelector("#last");
@@ -19,7 +17,7 @@ function conditions(field){
     }
 
     if(field==quantityField){
-        return (Number.isInteger(field.value) || field.value == 0 || field.value < 0 );
+        return (Number.isInteger(field.value) || field.value <= 0);
     }
 
     if(field==birthdateField){
@@ -37,7 +35,6 @@ function conditions(field){
     }
 
     if(field==radioField){
-        console.log("rien");
         return !checkArray.includes(true);
     }
 }
@@ -48,8 +45,10 @@ function checkInput(field,onsubmit,handler){
         onsubmit.preventDefault();
         field.parentElement.setAttribute("data-error-visible", "true");
         handler(field);
+        return 0;
     }else{
         field.parentElement.setAttribute("data-error-visible", "false");
+        return 1;
     }
 }
 
@@ -110,7 +109,7 @@ function error_message_email(field,event){
 }    
 
 function error_message_quatity(field,event){
-    if(Number.isInteger(event.target.value) || event.target.value == 0 || event.target.value < 0){
+    if(Number.isInteger(event.target.value) || event.target.value <= 0){
         field.parentElement.setAttribute("data-error-visible", "true");
     }else{
         field.parentElement.setAttribute("data-error-visible", "false");
@@ -142,8 +141,8 @@ function error_message_radio(field,event){
     }
 }    
 
-    
-document.querySelector(".btn-submit").addEventListener("click", (event)=>{
+//----Validate
+function validate(event){
     const firstField = document.querySelector("#first");
     const lastField = document.querySelector("#last");
     const emailField = document.querySelector("#email");
@@ -152,11 +151,25 @@ document.querySelector(".btn-submit").addEventListener("click", (event)=>{
     const radioField = document.querySelector(".checkbox-input");
     const checkFieldCondition = document.querySelector("#checkbox1");
 
-    checkInput(firstField,event,handleChange_first_last);
-    checkInput(lastField,event,handleChange_first_last);
-    checkInput(emailField,event,handleChange_email);
-    checkInput(quantityField,event,handleChange_quatity);
-    checkInput(birthdateField,event,handleChange_birthdate);
-    checkInput(checkFieldCondition,event,handleChange_checkFieldCondition);
-    checkInput(radioField,event,handleChange_radio);
-});
+    let firstname = checkInput(firstField,event,handleChange_first_last);
+    let lastname = checkInput(lastField,event,handleChange_first_last);
+    let email = checkInput(emailField,event,handleChange_email);
+    let quantity = checkInput(quantityField,event,handleChange_quatity);
+    let birthday = checkInput(birthdateField,event,handleChange_birthdate);
+    let usercondition = checkInput(checkFieldCondition,event,handleChange_checkFieldCondition);
+    let city = checkInput(radioField,event,handleChange_radio);
+
+    
+    if(firstname && lastname && email && quantity && birthday && usercondition && city){
+        submitSucess();
+        event.preventDefault();
+    } 
+
+    return false;
+}
+//---Submit Sucessfully
+function submitSucess(){
+    // document.querySelector('.modal-body').style.display = 'none';
+    document.querySelector("form").reset();
+    document.querySelector('.content').setAttribute("data-success-visible", "true");
+}

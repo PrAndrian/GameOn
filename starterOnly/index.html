@@ -53,14 +53,17 @@
       </div>
 
       <div class="bground">
-        <div class="content">
+        <div class="content"
+          data-success="Merci ! Votre réservation a été reçue."
+          data-success-visible="false"
+        >
           <span class="close"></span>
           <div class="modal-body">
             <form
               name="reserve"
-              action="index.html"
+              action="#"
               method="get"
-              onsubmit="return validate();"
+              onsubmit="return validate(event);"
             >
               <div
                 class="formData" 
@@ -221,7 +224,7 @@
                 </label>
                 <br>
               </div>
-              </div>
+              
               <input
                 class="btn-submit"
                 type="submit"
