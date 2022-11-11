@@ -11,6 +11,10 @@ function conditions(field){
     if(field==firstField || field==lastField){
         return (field.value.length == 0 || field.value.length < 2);
     }
+    
+    if(field==lastField){
+        return (field.value.length == 0 || field.value.length < 2);
+    }
 
     if(field==emailField){
         return (!field.value.match(/((['a-zA-Z])|((['a-zA-Z])(.)(['a-zA-Z])))(@)(['a-zA-Z])(.)(['a-zA-Z])/));
