@@ -54,17 +54,13 @@
       </div>
 
       <div class="bground">
-        <div class="content"
-          data-success="Merci ! Votre réservation a été reçue."
-          data-success-visible="false"
-        >
+        <div class="content">
           <span class="close"></span>
           <div class="modal-body">
             <form
               name="reserve"
               action="#"
               method="get"
-              onsubmit="return validate(event);"
             >
               <div
                 class="formData" 
@@ -233,6 +229,10 @@
                 value="C'est parti"
               >
             </form>
+          </div>
+          <div class="success_ui">
+            <span id="thanks">Merci pour votre inscription</span>
+            <button id="close_success" class="btn-submit button" onclick="closeModal()" >Fermer</button>
           </div>
         </div>
       </div>

@@ -146,7 +146,8 @@ function error_message_radio(field,event){
 }    
 
 //----Validate
-function validate(event){
+
+document.querySelector(".btn-submit").addEventListener('click', (event)=>{
     const firstField = document.querySelector("#first");
     const lastField = document.querySelector("#last");
     const emailField = document.querySelector("#email");
@@ -170,17 +171,15 @@ function validate(event){
     } 
 
     return false;
-}
+})
 //---Submit Sucessfully
 function submitSucess(){
     showSuccess();
+    document.querySelector('.modal-body').style.display = "none";
+    document.querySelector('.success_ui').style.display = "block";
     document.querySelector("form").reset();
 }
 
 function showSuccess(){
-    document.querySelector('.content').setAttribute("data-success-visible", "true");
-    document.querySelector('.content').setAttribute("data-success-visible", "true");
-}
-function hideSuccess(){
-    document.querySelector('.content').setAttribute("data-success-visible", "false");
+    // "<span class='thanks'>Merci ! Votre réservation a été reçue.</span>";
 }

@@ -191,13 +191,14 @@ main {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
+  background-color: white;
 }
 
 .content {
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
+  min-height: 813px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;
@@ -214,7 +215,7 @@ main {
 
 label {
   font-family: var(--font-default);
-  font-size: 17px;
+  font-size: 14px;
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
@@ -518,6 +519,18 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
+#thanks{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 400;
+  font-size: 42px;
+  line-height: 142.6%;
+  height: 750px;
+}
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
