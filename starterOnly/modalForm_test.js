@@ -20,30 +20,31 @@ const formfields = new Array(
 
 let error = false;
 
-//-------------------
+//-------Listen-to-inputs
 formfields.forEach(field => {
     field.addEventListener('input', e => {
         condition(e.target,field);
     })
 });
 
-//-------------------
-form.addEventListener('submit', (event)=>{
+// ---------Onsubmit
+// form.addEventListener('submit', (event)=>{
+document.querySelector(".btn-submit").addEventListener('click', (event)=>{
     event.preventDefault();
     
     formfields.forEach(field => {
         condition(field,field);
     })
-
+    
     if(!error){
         submitSucess();
-        form.submit();
+        return true;
     }
 
     return false;
 })
 
-//-------------------
+//-----Show-error
 function setError(condition, field){
     if(condition){
         field.parentElement.setAttribute("data-error-visible", "true");
@@ -54,13 +55,6 @@ function setError(condition, field){
         error = false;
     }
 }   
-
-//------Condition-of-field
-function submitSucess(){
-    document.querySelector('.modal-body').style.display = "none";
-    document.querySelector('.success_ui').style.display = "block";
-    document.querySelector("form").reset();
-}
 
 //------Condition-of-field
 function condition(element,field){
@@ -101,4 +95,11 @@ function condition(element,field){
         
         default : break;
     }
+}
+
+//------Sucessfully-submitted
+function submitSucess(){
+    document.querySelector('.modal-body').style.display = "none";
+    document.querySelector('.success_ui').style.display = "block";
+    form.reset();
 }
