@@ -153,8 +153,9 @@ document.querySelector(".btn-submit").addEventListener('click', (event)=>{
     const emailField = document.querySelector("#email");
     const quantityField = document.querySelector("#quantity");
     const birthdateField = document.querySelector("#birthdate");
-    const radioField = document.querySelector(".checkbox-input");
     const checkFieldCondition = document.querySelector("#checkbox1");
+    const radioField = document.querySelector(".checkbox-input");
+
 
     let firstname = checkInput(firstField,event,handleChange_first_last);
     let lastname = checkInput(lastField,event,handleChange_first_last);
@@ -174,12 +175,7 @@ document.querySelector(".btn-submit").addEventListener('click', (event)=>{
 })
 //---Submit Sucessfully
 function submitSucess(){
-    showSuccess();
     document.querySelector('.modal-body').style.display = "none";
     document.querySelector('.success_ui').style.display = "block";
     document.querySelector("form").reset();
-}
-
-function showSuccess(){
-    // "<span class='thanks'>Merci ! Votre réservation a été reçue.</span>";
 }

@@ -17,8 +17,8 @@ body {
   background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
-  max-width: 1300px;
   margin: 0 auto;
+  max-width: 1300px;
 }
 
 p {
@@ -185,7 +185,7 @@ main {
 .bground {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 4;
   left: 0;
   top: 0;
   height: 100%;
@@ -195,10 +195,9 @@ main {
 }
 
 .content {
-  margin: 5% auto;
+  margin:auto;
   width: 100%;
   max-width: 500px;
-  min-height: 813px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;
@@ -211,6 +210,7 @@ main {
 
 .modal-body {
   padding: 15px 8%;
+  margin: 15px auto;
 }
 
 label {
@@ -245,7 +245,7 @@ input {
 }
 
 .formData[data-error-visible="true"]::after {
-  font-size: 16px;
+  font-size: 14px;
   opacity: 1;
 }
 .formData[data-error-visible="true"] .text-control {
@@ -572,7 +572,6 @@ footer {
 
 @media screen and (max-width: 498px){
   .content{
-    margin :0;
     border-radius: 0;
   }
 }
