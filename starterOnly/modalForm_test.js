@@ -17,7 +17,7 @@ const formfields = new Array(
     radioField,
     checkFieldCondition
 ) 
-
+ 
 let error = false;
 
 function preventDefault(e) {
