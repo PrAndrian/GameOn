@@ -62,11 +62,11 @@ function condition(element,field){
 
     switch (element) {
         case firstField:
-            setError(element.value.length == 0 || element.value.length < 2, field);
+            setError(element.value.length == 0 || element.value.length < 2 || /[0-9]/.test(element.value), field);
         break;
 
         case lastField:
-            setError(element.value.length == 0 || element.value.length < 2, field);
+            setError(element.value.length == 0 || element.value.length < 2 || /[0-9]/.test(element.value), field);
         break;
             
         case emailField:
@@ -74,7 +74,9 @@ function condition(element,field){
         break;
 
         case birthdateField:
-            setError(element.value.length==0, field);
+            let Datenow = new Date(Date.now());
+            let selectedDate = new Date(element.value);
+            setError(element.value.length==0 || (selectedDate >= Datenow) || (Datenow.getFullYear() - selectedDate.getFullYear() ) < 18 , field);
         break;
 
         case quantityField:

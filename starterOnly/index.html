@@ -18,15 +18,17 @@
         <img alt="logo" src="Logo.png">
       </div>
     
+      
+      
       <div class="main-navbar">
+        <a class="icon" onclick="editNav()">
+          <i class="fa fa-bars"></i>
+        </a>
         <a href="#" class="active"><span>Accueil</span></a>
         <a href="#"><span>Détails de l'évènement</span></a>
         <a href="#"><span>À propos</span></a>
         <a href="#"><span>Contact</span></a>
         <a href="#"><span>Évènements passés</span></a>
-        <a href="javascript:void(0);" class="icon" onclick="editNav()">
-          <i class="fa fa-bars"></i>
-        </a>
       </div>
     </div>
 
@@ -64,7 +66,7 @@
             >
               <div
                 class="formData" 
-                data-error="Veuillez entrer 2 caractères ou plus pour le champ du prénom."
+                data-error="Veuillez entrer 2 caractères ou plus et sans chiffre pour le champ du prénom"
                 data-error-visible="false"
               >
                 <label for="first">Prénom</label><br>
@@ -78,7 +80,7 @@
               </div>
               <div
                 class="formData"
-                data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom."
+                data-error="Veuillez entrer 2 caractères ou plus et sans chiffre pour le champ du nom."
                 data-error-visible="false"
               >
                 <label>Nom</label><br>
@@ -104,7 +106,7 @@
               </div>
               <div
                 class="formData"
-                data-error="Vous devez entrer votre date de naissance."
+                data-error="Vous devez entrer votre date de naissance. Seul les 18+ peuvent participés."
                 data-error-visible="false"
               >
                 <label>Date de naissance</label><br>
