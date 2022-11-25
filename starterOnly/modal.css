@@ -81,7 +81,7 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav a {display: none;}
+  .topnav a {display: none; }
   .topnav a.icon {
     float: right;
     display: block;
@@ -98,6 +98,7 @@ img {
     background-color: white;
     height: 100%;
     display: block;
+    width: 100%;
   }
   .topnav{
     display: flex;
@@ -461,7 +462,7 @@ input[data-error]::after {
   color: #fff;
   position: relative;
   text-align: left;
-  min-width: 424px;
+  /* min-width: 424px; */
 }
 .hero-content::after {
   content: "";
@@ -573,6 +574,71 @@ footer {
 @media screen and (max-width: 498px){
   .content{
     border-radius: 0;
+  }
+
+}
+
+@media screen and (max-width: 426px){
+  .hero-headline {
+    font-size: 40px;
+    white-space: nowrap;
+  }
+
+  .hero-text {
+    font-size: 13px;
+    margin-top: 17px;
+  }
+
+  .hero-img img {
+    margin-top: 35px;
+  }
+
+  .hero-section{
+    min-height: 0;
+  }
+ 
+  .header-logo > img{
+    height: 19px;
+  }
+
+  .header-logo{
+    height: 19px;
+  }
+
+  .hero-content{
+    padding : 0;
+  }
+
+  .copyrights {
+    margin-top: 0;
+  }
+
+  .topnav{
+    width: 100%;
+    z-index: 10;
+    background-color: white;
+    display : flex;
+    align-items: center;
+    padding-right:30px ;
+    padding-left:30px ;
+  }
+
+  .topnav.responsive .icon {
+    position: auto;
+    right: 0;
+    top: 0;
+  }
+
+  .bground {
+   padding-top:85px;
+  }
+
+  .content {
+    border-radius: 10px 10px 0 0 ;
+  }
+
+  main{
+    margin: 1px 15px;
   }
 }
 

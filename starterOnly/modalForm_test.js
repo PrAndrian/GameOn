@@ -20,6 +20,10 @@ const formfields = new Array(
 
 let error = false;
 
+function preventDefault(e) {
+    e.preventDefault();
+}
+
 //-------Listen-to-inputs
 formfields.forEach(field => {
     field.addEventListener('input', e => {
@@ -30,7 +34,7 @@ formfields.forEach(field => {
 // ---------Onsubmit
 // form.addEventListener('submit', (event)=>{
 document.querySelector(".btn-submit").addEventListener('click', (event)=>{
-    event.preventDefault();
+    preventDefault(event);
     
     formfields.forEach(field => {
         condition(field,field);
@@ -38,10 +42,7 @@ document.querySelector(".btn-submit").addEventListener('click', (event)=>{
     
     if(!error){
         submitSucess();
-        return true;
     }
-
-    return false;
 })
 
 //-----Show-error
@@ -101,5 +102,5 @@ function condition(element,field){
 function submitSucess(){
     document.querySelector('.modal-body').style.display = "none";
     document.querySelector('.success_ui').style.display = "block";
-    form.reset();
+    // form.reset();
 }
