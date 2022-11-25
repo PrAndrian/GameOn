@@ -42,6 +42,7 @@ document.querySelector(".btn-submit").addEventListener('click', (event)=>{
     
     if(!error){
         submitSucess();
+        form.reset();
     }
 })
 
