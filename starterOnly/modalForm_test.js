@@ -42,7 +42,6 @@ document.querySelector(".btn-submit").addEventListener('click', (event)=>{
     
     if(!error){
         submitSucess();
-        form.reset();
     }
 })
 
@@ -105,5 +104,5 @@ function condition(element,field){
 function submitSucess(){
     document.querySelector('.modal-body').style.display = "none";
     document.querySelector('.success_ui').style.display = "block";
-    // form.reset();
+    form.reset();
 }
